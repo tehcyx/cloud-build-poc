@@ -2,6 +2,13 @@
 
 default: build
 
+setup:
+	go get github.com/jinzhu/gorm
+	go get gopkg.in/DATA-DOG/go-sqlmock.v1
+	go get github.com/gorilla/mux
+	go get github.com/urfave/negroni
+	go get github.com/lib/pq
+
 build: test cover
 	go build -i -o bin/app ./src
 
