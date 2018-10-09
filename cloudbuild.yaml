@@ -3,7 +3,7 @@ steps:
   args: ['get', 'github.com/jinzhu/gorm', 'gopkg.in/DATA-DOG/go-sqlmock.v1', 'github.com/gorilla/mux', 'github.com/urfave/negroni', 'github.com/lib/pq']
   env: ['PROJECT_ROOT=github.com/tehcyx/cloud-build-poc']
 - name: 'gcr.io/cloud-builders/go'
-  args: ['test', 'github.com/tehcyx/cloud-build-poc/...', '-cover']
+  args: ['test', './...', '-cover']
   env: ['PROJECT_ROOT=github.com/tehcyx/cloud-build-poc']
 - name: 'gcr.io/cloud-builders/go'
   args: ['install', 'github.com/tehcyx/cloud-build-poc']
