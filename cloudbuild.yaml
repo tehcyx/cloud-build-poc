@@ -1,13 +1,12 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ['get', 'github.com/jinzhu/gorm', 'gopkg.in/DATA-DOG/go-sqlmock.v1', 'github.com/gorilla/mux', 'github.com/urfave/negroni', 'github.com/lib/pq']
-  env: ['GOPATH=.', 'PROJECT_ROOT=.']
 - name: 'gcr.io/cloud-builders/go'
-  args: ['test', './...', '-cover']
-  env: ['GOPATH=.', 'PROJECT_ROOT=.']
+  args: ['test', 'github.com/tehcyx/cloud-build-poc/...', '-cover']
+  env: ['PROJECT_ROOT=github.com/tehcyx/cloud-build-poc']
 - name: 'gcr.io/cloud-builders/go'
-  args: ['install', './...']
-  env: ['GOPATH=.', 'PROJECT_ROOT=.']
+  args: ['install', 'github.com/tehcyx/cloud-build-poc']
+  env: ['PROJECT_ROOT=github.com/tehcyx/cloud-build-poc']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
 images: ['gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
