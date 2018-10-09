@@ -1,5 +1,6 @@
 steps:
 - name: 'gcr.io/cloud-builders/go'
   args: ['install', '.']
+  dir: 'src'
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
