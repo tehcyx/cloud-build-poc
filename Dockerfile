@@ -5,7 +5,7 @@ RUN go get gopkg.in/DATA-DOG/go-sqlmock.v1
 RUN go get github.com/gorilla/mux
 RUN go get github.com/urfave/negroni
 RUN go get github.com/lib/pq
-COPY . /app
+COPY . .
 RUN go test ./...
 RUN go test ./... -cover
 RUN go build -i -o bin/app
