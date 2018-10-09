@@ -1,5 +1,7 @@
 steps:
-- name: 'gcr.io/cloud-builders/make'
-  args: ['setup']
+- name: 'gcr.io/cloud-builders/go'
+  args: ['get', 'github.com/jinzhu/gorm', 'gopkg.in/DATA-DOG/go-sqlmock.v1', 'github.com/gorilla/mux', 'github.com/urfave/negroni', 'github.com/lib/pq']
+- name: 'gcr.io/cloud-builders/go'
+  args: ['build', '-i', '-o', 'bin/app', './src']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA', '.']
