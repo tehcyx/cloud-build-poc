@@ -7,8 +7,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/tehcyx/cloud-build-poc/src/repository"
-	"github.com/tehcyx/cloud-build-poc/src/text"
+	"github.com/tehcyx/cloud-build-poc/repository"
+	"github.com/tehcyx/cloud-build-poc/text"
 	sqlmock "gopkg.in/DATA-DOG/go-sqlmock.v1"
 )
 

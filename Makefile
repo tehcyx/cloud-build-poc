@@ -10,7 +10,7 @@ setup:
 	go get github.com/lib/pq
 
 build: test cover
-	go build -i -o bin/app ./src
+	go build -i -o bin/app
 
 up: docker
 	docker-compose up

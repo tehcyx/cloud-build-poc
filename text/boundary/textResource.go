@@ -8,9 +8,9 @@ import (
 	"time"
 
 	"github.com/gorilla/mux"
-	"github.com/tehcyx/cloud-build-poc/src/domain"
-	"github.com/tehcyx/cloud-build-poc/src/repository"
-	"github.com/tehcyx/cloud-build-poc/src/text/control"
+	"github.com/tehcyx/cloud-build-poc/domain"
+	"github.com/tehcyx/cloud-build-poc/repository"
+	"github.com/tehcyx/cloud-build-poc/text/control"
 	"github.com/urfave/negroni"
 )
 

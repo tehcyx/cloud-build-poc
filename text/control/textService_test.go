@@ -7,7 +7,7 @@ import (
 
 	"gopkg.in/DATA-DOG/go-sqlmock.v1"
 
-	"github.com/tehcyx/cloud-build-poc/src/repository"
+	"github.com/tehcyx/cloud-build-poc/repository"
 )
 
 var sqlMock sqlmock.Sqlmock
