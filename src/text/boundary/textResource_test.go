@@ -10,10 +10,10 @@ import (
 	"testing"
 
 	"github.com/gorilla/mux"
-	"github.com/tehcyx/cloud-build-poc/domain"
-	"github.com/tehcyx/cloud-build-poc/repository"
-	"github.com/tehcyx/cloud-build-poc/text"
-	textBoundary "github.com/tehcyx/cloud-build-poc/text/boundary"
+	"github.com/tehcyx/cloud-build-poc/src/domain"
+	"github.com/tehcyx/cloud-build-poc/src/repository"
+	"github.com/tehcyx/cloud-build-poc/src/text"
+	textBoundary "github.com/tehcyx/cloud-build-poc/src/text/boundary"
 	sqlmock "gopkg.in/DATA-DOG/go-sqlmock.v1"
 )
 

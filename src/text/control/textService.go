@@ -3,8 +3,8 @@ package control
 import (
 	"log"
 
-	"github.com/tehcyx/cloud-build-poc/domain"
-	"github.com/tehcyx/cloud-build-poc/repository"
+	"github.com/tehcyx/cloud-build-poc/src/domain"
+	"github.com/tehcyx/cloud-build-poc/src/repository"
 )
 
 var db *repository.DB

@@ -3,7 +3,7 @@
 default: build
 
 build: test cover
-	go build -i -o bin/app
+	go build -i -o bin/app ./src
 
 up: docker
 	docker-compose up

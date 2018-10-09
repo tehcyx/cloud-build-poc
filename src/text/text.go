@@ -3,10 +3,10 @@ package text
 import (
 	"log"
 
-	"github.com/tehcyx/cloud-build-poc/domain"
-	"github.com/tehcyx/cloud-build-poc/repository"
-	"github.com/tehcyx/cloud-build-poc/text/boundary"
-	"github.com/tehcyx/cloud-build-poc/text/control"
+	"github.com/tehcyx/cloud-build-poc/src/domain"
+	"github.com/tehcyx/cloud-build-poc/src/repository"
+	"github.com/tehcyx/cloud-build-poc/src/text/boundary"
+	"github.com/tehcyx/cloud-build-poc/src/text/control"
 )
 
 var db *repository.DB

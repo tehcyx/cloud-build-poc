@@ -1,6 +1,6 @@
 package repository
 
-import "github.com/tehcyx/cloud-build-poc/domain"
+import "github.com/tehcyx/cloud-build-poc/src/domain"
 
 // CreateText creates a Text inside the repository
 func (db *DB) CreateText(c *domain.Text) {
