@@ -18,7 +18,7 @@ steps:
   - name: 'go'
     path: '/gopath'
 - name: 'gcr.io/cloud-builders/go'
-  args: ['install', './...']
+  args: ['build', '-i', '-o', './bin/app']
   env: ['GOPATH=/gopath', 'PROJECT_ROOT=.']
   volumes:
   - name: 'go'
