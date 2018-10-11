@@ -35,9 +35,8 @@ steps:
   args:
   - set
   - image
-  - deployment
-  - poc-dev
-  - poc-app=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA
+  - deployments/poc-app
+  - github-tehcyx-cloud-build-poc=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=us-central1-a'
   - 'CLOUDSDK_CONTAINER_CLUSTER=your-first-cluster-1'
