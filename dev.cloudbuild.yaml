@@ -35,7 +35,6 @@ steps:
   args:
   - set
   - image
-  - deployment
   - deployment/poc-app
   - poc-app=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA
   env:
