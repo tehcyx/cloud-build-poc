@@ -1,4 +1,4 @@
-package text_test
+package text_test // import "github.com/tehcyx/cloud-build-poc/text"
 
 import (
 	"errors"

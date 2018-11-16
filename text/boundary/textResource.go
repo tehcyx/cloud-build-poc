@@ -1,4 +1,4 @@
-package boundary
+package boundary // import "github.com/tehcyx/cloud-build-poc/text/boundary"
 
 import (
 	"errors"

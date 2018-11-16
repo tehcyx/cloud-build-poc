@@ -1,4 +1,4 @@
-package domain
+package domain // import "github.com/tehcyx/cloud-build-poc/domain"
 
 // Text represents a single text entity
 type Text struct {

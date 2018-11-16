@@ -1,0 +1,42 @@
+FROM l.gcr.io/google/bazel:0.17.1
+
+ARG VERSION=1.11.1
+ARG OS=linux
+ARG ARCH=amd64
+ARG WORKSPACE_FOLDER=src
+
+# RUN curl https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz --output go$VERSION.$OS-$ARCH.tar.gz
+# RUN tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
+# RUN echo 'export PATH=$PATH:/usr/local/go/bin' >> /etc/profile
+# RUN echo 'export PATH=$PATH:/usr/local/go/bin' >> $HOME/.profile
+# RUN echo 'export PATH=$PATH:/usr/local/go/bin' >> $HOME/.bashrc
+
+RUN mkdir /${WORKSPACE_FOLDER}
+WORKDIR /${WORKSPACE_FOLDER}
+
+# SETUP go workspace
+RUN echo 'load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive") \n\
+http_archive( \n\
+    name = "io_bazel_rules_go", \n\
+    urls = ["https://github.com/bazelbuild/rules_go/releases/download/0.15.4/rules_go-0.15.4.tar.gz"], \n\
+    sha256 = "7519e9e1c716ae3c05bd2d984a42c3b02e690c5df728dc0a84b23f90c355c5a1", \n\
+) \n\
+http_archive( \n\
+    name = "bazel_gazelle", \n\
+    urls = ["https://github.com/bazelbuild/bazel-gazelle/releases/download/0.14.0/bazel-gazelle-0.14.0.tar.gz"], \n\
+    sha256 = "c0a5739d12c6d05b6c1ad56f2200cb0b57c5a70e03ebd2f7b87ce88cabf09c7b", \n\
+) \n\
+load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_toolchains") \n\
+go_rules_dependencies() \n\
+go_register_toolchains() \n\
+load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies") \n\
+gazelle_dependencies()' > WORKSPACE
+
+RUN echo 'load("@bazel_gazelle//:def.bzl", "gazelle") \n\
+\n\
+# gazelle:prefix github.com/tehcyx/cloud-build-poc \n\
+gazelle(name = "gazelle")' > BUILD
+
+COPY . ./github.com/tehcyx/cloud-build-poc
+
+ENTRYPOINT [ "/bin/bash" ]

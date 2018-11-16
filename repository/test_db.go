@@ -1,4 +1,4 @@
-package repository
+package repository // import "github.com/tehcyx/cloud-build-poc/repository"
 
 import (
 	"fmt"

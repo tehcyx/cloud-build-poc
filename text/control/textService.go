@@ -1,4 +1,4 @@
-package control
+package control // import "github.com/tehcyx/cloud-build-poc/text/control"
 
 import (
 	"log"

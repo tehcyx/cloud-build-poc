@@ -1,4 +1,4 @@
-package text
+package text // import "github.com/tehcyx/cloud-build-poc/text"
 
 import (
 	"log"

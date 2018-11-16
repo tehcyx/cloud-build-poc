@@ -1,4 +1,4 @@
-package boundary_test
+package boundary_test // import "github.com/tehcyx/cloud-build-poc/text/boundary"
 
 import (
 	"encoding/json"

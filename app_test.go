@@ -1,4 +1,4 @@
-package main_test
+package main_test // import "github.com/tehcyx/cloud-build-poc"
 
 import (
 	"encoding/json"
