@@ -4,6 +4,7 @@ ARG VERSION=1.11.1
 ARG OS=linux
 ARG ARCH=amd64
 ARG WORKSPACE_FOLDER=src
+ARG SRC_FOLDER=github.com/tehcyx/cloud-build-poc
 
 # RUN curl https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz --output go$VERSION.$OS-$ARCH.tar.gz
 # RUN tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
@@ -11,7 +12,7 @@ ARG WORKSPACE_FOLDER=src
 # RUN echo 'export PATH=$PATH:/usr/local/go/bin' >> $HOME/.profile
 # RUN echo 'export PATH=$PATH:/usr/local/go/bin' >> $HOME/.bashrc
 
-RUN mkdir /${WORKSPACE_FOLDER}
+RUN mkdir -p /${WORKSPACE_FOLDER}/${SRC_FOLDER}
 WORKDIR /${WORKSPACE_FOLDER}
 
 # SETUP go workspace
@@ -30,13 +31,12 @@ load("@io_bazel_rules_go//go:def.bzl", "go_rules_dependencies", "go_register_too
 go_rules_dependencies() \n\
 go_register_toolchains() \n\
 load("@bazel_gazelle//:deps.bzl", "gazelle_dependencies") \n\
-gazelle_dependencies()' > WORKSPACE
+gazelle_dependencies()' > ./${SRC_FOLDER}/WORKSPACE
 
 RUN echo 'load("@bazel_gazelle//:def.bzl", "gazelle") \n\
-\n\
-# gazelle:prefix github.com/tehcyx/cloud-build-poc \n\
-gazelle(name = "gazelle")' > BUILD
+\n# gazelle:prefix github.com/tehcyx/cloud-build-poc \n\
+gazelle(name = "gazelle")' > ./${SRC_FOLDER}/BUILD
 
-COPY . ./github.com/tehcyx/cloud-build-poc
+COPY . ./${SRC_FOLDER}/
 
 ENTRYPOINT [ "/bin/bash" ]
